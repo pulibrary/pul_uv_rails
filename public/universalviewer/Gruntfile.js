@@ -31,9 +31,9 @@ module.exports = function (grunt) {
 
         pkg: packageJson,
 
-        ts: {
-            dev: config.ts.dev,
-            dist: config.ts.dist
+        typescript: {
+            dev: config.typescript.dev,
+            dist: config.typescript.dist
         },
 
         clean: {
@@ -66,6 +66,7 @@ module.exports = function (grunt) {
                             var reg = /extensions\/(.*)\/build\/(.*.schema.json)/;
                             var extensionName = src.match(reg)[1];
                             var fileName = src.match(reg)[2];
+
                             return dest + extensionName + '.' + fileName;
                         }
                     }
@@ -106,6 +107,7 @@ module.exports = function (grunt) {
                         src: ['src/extensions/**/build/*.config.json'],
                         dest: '<%= config.directories.build %>/lib/',
                         rename: function(dest, src) {
+
                             // get the extension name from the src string.
                             // src/extensions/[extension]/[locale].config.json
                             var reg = /extensions\/(.*)\/build\/(.*.config.json)/;
@@ -121,6 +123,7 @@ module.exports = function (grunt) {
                         src: ['src/extensions/**/dependencies.js'],
                         dest: '<%= config.directories.build %>/lib/',
                         rename: function(dest, src) {
+
                             // get the extension name from the src string.
                             var reg = /extensions\/(.*)\/dependencies.js/;
                             var extensionName = src.match(reg)[1];
@@ -224,10 +227,21 @@ module.exports = function (grunt) {
             },
             npmComponents: {
                 files: [
+                    {
+                        // all d.ts files that need to be copied from /node_modules to /src/typings post npm install
+                        expand: true,
+                        flatten: true,
+                        src: config.dependencies.typings,
+                        dest: '<%= config.directories.typings %>'
+                    },
                     mediaelementExtensionConfig.sync.dependencies,
+                    mediaelementExtensionConfig.sync.typings,
                     pdfExtensionConfig.sync.dependencies,
+                    pdfExtensionConfig.sync.typings,
                     seadragonExtensionConfig.sync.dependencies,
-                    virtexExtensionConfig.sync.dependencies
+                    seadragonExtensionConfig.sync.typings,
+                    virtexExtensionConfig.sync.dependencies,
+                    virtexExtensionConfig.sync.typings
                 ]
             }
         },
@@ -403,7 +417,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-exec");
-    grunt.loadNpmTasks("grunt-ts");
+    grunt.loadNpmTasks("grunt-typescript");
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('grunt-sync');
@@ -417,7 +431,7 @@ module.exports = function (grunt) {
         grunt.task.run(
             'clean:bundle',
             'concat:bundle',
-            'ts:dev',
+            'typescript:dev',
             'clean:extension',
             'configure:apply',
             'theme:create'
@@ -440,7 +454,7 @@ module.exports = function (grunt) {
             'clean:bundle',
             'concat:bundle',
             'uglify:bundle',
-            'ts:dist',
+            'typescript:dist',
             'clean:extension',
             'configure:apply',
             'clean:build',
