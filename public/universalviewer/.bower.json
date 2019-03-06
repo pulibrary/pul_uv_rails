@@ -1,6 +1,6 @@
 {
   "name": "Universal Viewer",
-  "description": "The Universal Viewer is an open source project to enable cultural heritage institutions to present their digital artifacts in an IIIF-compliant and highly customisable user interface.",
+  "description": "The Universal Viewer is a community-developed open source project on a mission to help you share your content with the world.",
   "repository": {
     "type": "git",
     "url": "git://github.com/UniversalViewer/universalviewer"
@@ -15,18 +15,15 @@
     "tests"
   ],
   "dependencies": {},
-  "devDependencies": {
-    "uv-cy-GB-theme": "universalviewer/uv-cy-GB-theme",
-    "uv-en-GB-theme": "universalviewer/uv-en-GB-theme"
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/jrgriffiniii/universalviewer",
-  "_release": "a52a936b85",
+  "_release": "95c4c8bd00",
   "_resolution": {
     "type": "branch",
-    "branch": "jrgriffiniii-share-volumes-v2.0.1",
-    "commit": "a52a936b854b3a2cfc40d0602a3d029cd2c303c8"
+    "branch": "jrgriffiniii-share-volumes",
+    "commit": "95c4c8bd00146f2fcf67f7b4cb256e8fb3fe77ba"
   },
   "_source": "https://github.com/jrgriffiniii/universalviewer.git",
-  "_target": "jrgriffiniii-share-volumes-v2.0.1",
+  "_target": "jrgriffiniii-share-volumes",
   "_originalSource": "jrgriffiniii/universalviewer"
 }

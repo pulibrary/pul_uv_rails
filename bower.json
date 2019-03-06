@@ -22,6 +22,6 @@
     "tests"
   ],
   "dependencies": {
-    "universalviewer": "jrgriffiniii/universalviewer#jrgriffiniii-share-volumes-v2.0.1"
+    "universalviewer": "jrgriffiniii/universalviewer#jrgriffiniii-share-volumes"
   }
 }

@@ -1,18 +1,19 @@
 #################
-## libs
+## lib folders
 #################
 
 lib
+src/lib/bundle.js
 src/lib/bundle.min.js
 !src/lib
 !src/extensions/**/lib
-!dist/**/lib
 
 #################
 ## TypeScript
 #################
 
 .tscache
+typings
 
 #################
 ## Webstorm
@@ -49,27 +50,30 @@ node_modules
 *.min.map
 !app.build.js
 !tasks/*.js
-!config.js
+/config.js
 !Gruntfile.js
 !gulpfile.js
 !src/lib/*.js
 !src/*/*/lib/*.js
 !src/extensions/*/dependencies.js
-!dist/**/*.js
+!src/helpers.js
+!dev.build.js
+!dist.build.js
+src/extensions/*/lib/*.js
+!src/extensions/*/lib/*.proxy.js
 
 #################
 ## Build
 #################
 
-build/
-src/extensions/*/build
+.build/
+src/extensions/*/.build
 
 #################
 ## Dist
 #################
 
-dist/*.tar
-dist/*.zip
+dist
 
 #################
 ## Themes
