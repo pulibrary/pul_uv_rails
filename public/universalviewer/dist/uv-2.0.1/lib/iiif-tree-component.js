@@ -1,6 +1,8 @@
 // iiif-tree-component v1.0.7 https://github.com/viewdir/iiif-tree-component#readme
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.iiifTreeComponent = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-(function (global){
+
+
+
 
 
 
@@ -14,9 +16,8 @@ var IIIFComponents;
     var TreeComponent = (function (_super) {
         __extends(TreeComponent, _super);
         function TreeComponent(options) {
-            var _this = _super.call(this, options) || this;
-            _this._init();
-            return _this;
+            _super.call(this, options);
+            this._init();
         }
         TreeComponent.prototype._init = function () {
             var success = _super.prototype._init.call(this);
@@ -67,7 +68,7 @@ var IIIFComponents;
                         if (node.isRange()) {
                             that._getMultiSelectState().selectRange(node.data, node.multiSelected);
                         }
-                        that.fire(TreeComponent.Events.TREE_NODE_MULTISELECTED, node);
+                        that._emit(TreeComponent.Events.TREE_NODE_MULTISELECTED, node);
                     },
                     init: function (tagCtx, linkCtx, ctx) {
                         this.data = tagCtx.view.data;
@@ -88,11 +89,11 @@ var IIIFComponents;
                             }
                             else {
                                 if (!node.nodes.length) {
-                                    that.fire(TreeComponent.Events.TREE_NODE_SELECTED, node);
+                                    that._emit(TreeComponent.Events.TREE_NODE_SELECTED, node);
                                     that.selectNode(node);
                                 }
-                                else if (that.options.data.branchNodesSelectable) {
-                                    that.fire(TreeComponent.Events.TREE_NODE_SELECTED, node);
+                                else if (that.options.branchNodesSelectable) {
+                                    that._emit(TreeComponent.Events.TREE_NODE_SELECTED, node);
                                     that.selectNode(node);
                                 }
                             }
@@ -105,8 +106,8 @@ var IIIFComponents;
             });
             return success;
         };
-        TreeComponent.prototype.set = function () {
-            this._rootNode = this.options.data.helper.getTree(this.options.data.topRangeIndex, this.options.data.treeSortType);
+        TreeComponent.prototype.databind = function () {
+            this._rootNode = this.options.helper.getTree(this.options.topRangeIndex, this.options.treeSortType);
             this._allNodes = null; // delete cache
             this._multiSelectableNodes = null; // delete cache
             this._$tree.link($.templates.pageTemplate, this._rootNode);
@@ -125,9 +126,9 @@ var IIIFComponents;
             }
         };
         TreeComponent.prototype._getMultiSelectState = function () {
-            return this.options.data.helper.getMultiSelectState();
+            return this.options.helper.getMultiSelectState();
         };
-        TreeComponent.prototype.data = function () {
+        TreeComponent.prototype._getDefaultOptions = function () {
             return {
                 branchNodesSelectable: true,
                 helper: null,
@@ -250,7 +251,7 @@ var IIIFComponents;
         TreeComponent.prototype.getNodeByPath = function (parentNode, path) {
             if (path.length === 0)
                 return parentNode;
-            var index = Number(path.shift());
+            var index = path.shift();
             var node = parentNode.nodes[index];
             return this.getNodeByPath(node, path);
         };
@@ -266,28 +267,28 @@ var IIIFComponents;
     }(_Components.BaseComponent));
     IIIFComponents.TreeComponent = TreeComponent;
 })(IIIFComponents || (IIIFComponents = {}));
+var IIIFComponents;
 (function (IIIFComponents) {
     var TreeComponent;
     (function (TreeComponent) {
         var Events = (function () {
             function Events() {
             }
+            Events.TREE_NODE_MULTISELECTED = 'treeNodeMultiSelected';
+            Events.TREE_NODE_SELECTED = 'treeNodeSelected';
             return Events;
         }());
-        Events.TREE_NODE_MULTISELECTED = 'treeNodeMultiSelected';
-        Events.TREE_NODE_SELECTED = 'treeNodeSelected';
         TreeComponent.Events = Events;
     })(TreeComponent = IIIFComponents.TreeComponent || (IIIFComponents.TreeComponent = {}));
 })(IIIFComponents || (IIIFComponents = {}));
-(function (g) {
-    if (!g.IIIFComponents) {
-        g.IIIFComponents = IIIFComponents;
+(function (w) {
+    if (!w.IIIFComponents) {
+        w.IIIFComponents = IIIFComponents;
     }
     else {
-        g.IIIFComponents.TreeComponent = IIIFComponents.TreeComponent;
+        w.IIIFComponents.TreeComponent = IIIFComponents.TreeComponent;
     }
-})(global);
+})(window);
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}]},{},[1])(1)
 });

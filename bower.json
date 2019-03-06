@@ -1,6 +1,6 @@
 {
   "name": "pul_uv_rails",
-  "version": "1.7.27",
+  "version": "2.0.1",
   "homepage": "https://github.com/pulibrary/pul_uv_rails",
   "authors": [
     "Eliot Jordan <eliot.jordan@gmail.com>"
@@ -22,6 +22,6 @@
     "tests"
   ],
   "dependencies": {
-    "universalviewer": "pulibrary/universalviewer#pulibrary_dev_updated"
+    "universalviewer": "jrgriffiniii/universalviewer#jrgriffiniii-share-volumes-v2.0.1"
   }
 }

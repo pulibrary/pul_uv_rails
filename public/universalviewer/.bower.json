@@ -17,16 +17,16 @@
   "dependencies": {},
   "devDependencies": {
     "uv-cy-GB-theme": "universalviewer/uv-cy-GB-theme",
-    "uv-en-GB-theme": "pulibrary/uv-en-GB-theme"
+    "uv-en-GB-theme": "universalviewer/uv-en-GB-theme"
   },
-  "homepage": "https://github.com/pulibrary/universalviewer",
-  "_release": "8f6c03764d",
+  "homepage": "https://github.com/jrgriffiniii/universalviewer",
+  "_release": "d9c5a417ef",
   "_resolution": {
     "type": "branch",
-    "branch": "pulibrary_dev_updated",
-    "commit": "8f6c03764d0dac19191566db0a1859fe88ea39a3"
+    "branch": "jrgriffiniii-share-volumes-v2.0.1",
+    "commit": "d9c5a417ef5a46c56e89153c67d1ec82ef741c0b"
   },
-  "_source": "git://github.com/pulibrary/universalviewer.git",
-  "_target": "pulibrary_dev_updated",
-  "_originalSource": "pulibrary/universalviewer"
+  "_source": "https://github.com/jrgriffiniii/universalviewer.git",
+  "_target": "jrgriffiniii-share-volumes-v2.0.1",
+  "_originalSource": "jrgriffiniii/universalviewer"
 }
