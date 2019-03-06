@@ -20,11 +20,11 @@
     "uv-en-GB-theme": "universalviewer/uv-en-GB-theme"
   },
   "homepage": "https://github.com/jrgriffiniii/universalviewer",
-  "_release": "d9c5a417ef",
+  "_release": "a52a936b85",
   "_resolution": {
     "type": "branch",
     "branch": "jrgriffiniii-share-volumes-v2.0.1",
-    "commit": "d9c5a417ef5a46c56e89153c67d1ec82ef741c0b"
+    "commit": "a52a936b854b3a2cfc40d0602a3d029cd2c303c8"
   },
   "_source": "https://github.com/jrgriffiniii/universalviewer.git",
   "_target": "jrgriffiniii-share-volumes-v2.0.1",
