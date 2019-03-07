@@ -20,13 +20,13 @@
     "uv-en-GB-theme": "pulibrary/uv-en-GB-theme"
   },
   "homepage": "https://github.com/pulibrary/universalviewer",
-  "_release": "01883ee47a",
+  "_release": "3c607a87b8",
   "_resolution": {
     "type": "branch",
-    "branch": "uv-2.0.2",
-    "commit": "01883ee47a323e7b445538622812ba2fc9c2a92d"
+    "branch": "cicognara-issues-331",
+    "commit": "3c607a87b8288e09f6dbf08a430d70a4cfffcd12"
   },
   "_source": "https://github.com/pulibrary/universalviewer.git",
-  "_target": "uv-2.0.2",
+  "_target": "cicognara-issues-331",
   "_originalSource": "pulibrary/universalviewer"
 }

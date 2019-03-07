@@ -22,6 +22,6 @@
     "tests"
   ],
   "dependencies": {
-    "universalviewer": "pulibrary/universalviewer#uv-2.0.2"
+    "universalviewer": "pulibrary/universalviewer#cicognara-issues-331"
   }
 }
