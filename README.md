@@ -1,3 +1,5 @@
+## Note: This gem is depreceated. Princeton has removed it from most of our applications, and it has also been removed from Hyrax.
+
 # PulUvRails
 
 A Rails engine wrapper to include the Princeton University Library branded Universal Viewer.
